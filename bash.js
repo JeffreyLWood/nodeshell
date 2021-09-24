@@ -1,5 +1,6 @@
 const pwd = require("./pwd");
 const ls = require("./ls");
+const cat = require("./cat");
 //Output a prompt
 process.stdout.write("prompt > ");
 
@@ -14,6 +15,9 @@ process.stdin.on("data", (data) => {
     pwd.func2();
   } else if (cmd === "ls") {
     ls.runFs();
+  } else if (cmd.split(" ")[0] === "cat") {
+    let fileName = cmd.split(" ")[1];
+    cat.runCat(fileName);
   } else {
     process.stdout.write("You typed: " + cmd);
   }
