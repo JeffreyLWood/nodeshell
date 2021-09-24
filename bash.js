@@ -28,3 +28,12 @@ process.stdin.on("data", (data) => {
 
   process.stdout.write("\nprompt > ");
 });
+
+const done = (output) => {
+  process.stdout.write(output);
+  process.stdout.write("\nprompt > ");
+};
+
+module.exports = {
+  done,
+};
