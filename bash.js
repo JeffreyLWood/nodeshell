@@ -1,6 +1,7 @@
 const pwd = require("./pwd");
 const ls = require("./ls");
 const cat = require("./cat");
+const curl = require("./curl");
 //Output a prompt
 process.stdout.write("prompt > ");
 
@@ -18,6 +19,9 @@ process.stdin.on("data", (data) => {
   } else if (cmd.split(" ")[0] === "cat") {
     let fileName = cmd.split(" ")[1];
     cat.runCat(fileName);
+  } else if (cmd.split(" ")[0] === "curl") {
+    let url = cmd.split(" ")[1];
+    curl.getCode(url);
   } else {
     process.stdout.write("You typed: " + cmd);
   }
